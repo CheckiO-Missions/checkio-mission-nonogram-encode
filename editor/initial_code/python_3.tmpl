@@ -1,0 +1,25 @@
+{% comment %}New initial code template{% endcomment %}
+{% block env %}{% endblock env %}
+
+{% block start %}
+def nonogram_encode(data: list[str]) -> list:
+    # your code here
+    return []
+{% endblock start %}
+
+{% block example %}
+print('Example:')
+print(nonogram_encode([' X X ',
+                       'X X X', 
+                       ' X X ']))
+{% endblock %}
+
+{% block tests %}
+{% for t in tests %}
+assert {% block call %}nonogram_encode({{t.input|p_args}})
+{% endblock %} == {% block result %}{{t.answer|p}}{% endblock %}{% endfor %}
+{% endblock %}
+
+{% block final %}
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+{% endblock final %}

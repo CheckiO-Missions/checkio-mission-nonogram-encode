@@ -1,0 +1,78 @@
+<!-- Describe task in general -->
+
+<p>
+    I believe, you have heart about picture logic puzzles <a target="_blank" href="https://en.wikipedia.org/wiki/Nonogram">nonograms</a>
+    and solved them. In this mission you already have a binary image, formed
+    by strings of equal length, where background empty cell is whitespace and
+    picture cell filled with 'X'.
+</p>
+<p>
+    Your goal is to create a number clue for solving this image like it was hidden.
+    Your function should return a list of two lists. The first one consists of lists
+    with numbers for vertical clue, the second one - the same for horizontal clue.
+    All lists in vertical clue as well as in horizontal, should be of same 'depth'
+    (complemented with 0). Let's see all this on example:
+    <br />
+    <br />
+    <pre class="brush: python">
+example = [' X X ',
+           'X X X', 
+           ' X X ']
+    </pre>
+    Example with solution to see the whole idea:
+    <br />
+    <br />
+    <pre class="brush: python">
+               vertical clue = [[0, 1, 0, 1, 0],
+                                [1, 1, 1, 1, 1]]
+horizontal clue = [[0, 1, 1],  [' X X ',
+                   [1, 1, 1],   'X X X',
+                   [0, 1, 1]]   ' X X ']
+    </pre>
+    So, for this example your function should return the following:
+    <br />
+    <br />
+    <pre class="brush: python">
+nonogram_encode(example) = [[[0, 1, 0, 1, 0],
+                             [1, 1, 1, 1, 1]],
+                            [[0, 1, 1],
+                             [1, 1, 1],
+                             [0, 1, 1]]]
+# the same non formatted view
+[[[0, 1, 0, 1, 0], [1, 1, 1, 1, 1]], [[0, 1, 1], [1, 1, 1], [0, 1, 1]]]
+    </pre>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Input:</strong> {% if is_js %}Array{% else %}List{% endif %} of strings.
+</p>
+
+<p>
+    <strong>Output:</strong> {% if is_js %}Array of 2 arrays{% else %}List of 2 lists{% endif %}.
+</p>
+
+<p>
+    <strong>Examples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>How it’s used: </strong>
+    <i>Helps you when you create your own type of picture logic puzzle.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Precondition:</strong>
+    <ul>
+    <li><i>len(data[i]) == len(data[0])</i></li>
+    <li><i>set(data[i]) == {' ', 'X'}</i></li>
+    <li><i>for list in output: len(list[i]) == len(list[0])</i></li>
+    </ul>
+</p>
