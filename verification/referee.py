@@ -9,8 +9,8 @@ api.add_listener(
     CheckiOReferee(
         tests=TESTS,
         function_name={
-            "python": "sum_two",
-            "js": "sumTwo"
+            "python": "nonogram_encode",
+            "js": "nonogramEncode"
         },
         cover_code={
             'python-3': {},

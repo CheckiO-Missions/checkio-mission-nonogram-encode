@@ -2,16 +2,16 @@
 
 <p>
     I believe, you have heart about picture logic puzzles <a target="_blank" href="https://en.wikipedia.org/wiki/Nonogram">nonograms</a>
-    and solved them. In this mission you already have a binary image, formed
-    by strings of equal length, where background empty cell is whitespace and
+    and solved them. This mission is the opposite: you already have a binary image,
+    formed by strings of equal length, where background empty cell is whitespace and
     picture cell filled with 'X'.
 </p>
 <p>
-    Your goal is to create a number clue for solving this image like it was hidden.
-    Your function should return a list of two lists. The first one consists of lists
-    with numbers for vertical clue, the second one - the same for horizontal clue.
-    All lists in vertical clue as well as in horizontal, should be of same 'depth'
-    (complemented with 0). Let's see all this on example:
+    Your goal is to create a nonogram from the image: write a number clue for solving
+    this image like it was hidden. Your function should return {% if is_js %}an Array of two Arrays{% else %}a list of two lists{% endif %}.
+    The first one consists of {% if is_js %}Arrays{% else %}lists{% endif %}with numbers for columns clue, the second one -
+    the same for rows clue. All {% if is_js %}Arrays{% else %}lists{% endif %} in columns clue, as well as in rows,
+    should be of same 'depth' (complemented with 0). Let's see all this on example:
     <br />
     <br />
     <pre class="brush: python">
@@ -23,11 +23,11 @@ example = [' X X ',
     <br />
     <br />
     <pre class="brush: python">
-               vertical clue = [[0, 1, 0, 1, 0],
-                                [1, 1, 1, 1, 1]]
-horizontal clue = [[0, 1, 1],  [' X X ',
-                   [1, 1, 1],   'X X X',
-                   [0, 1, 1]]   ' X X ']
+         columns clue = [[0, 1, 0, 1, 0],
+                         [1, 1, 1, 1, 1]]
+rows clue = [[0, 1, 1], [' X X ',
+             [1, 1, 1],  'X X X',
+             [0, 1, 1]]  ' X X ']
     </pre>
     So, for this example your function should return the following:
     <br />
@@ -38,7 +38,7 @@ nonogram_encode(example) = [[[0, 1, 0, 1, 0],
                             [[0, 1, 1],
                              [1, 1, 1],
                              [0, 1, 1]]]
-# the same non formatted view
+# the same, non formatted view
 [[[0, 1, 0, 1, 0], [1, 1, 1, 1, 1]], [[0, 1, 1], [1, 1, 1], [0, 1, 1]]]
     </pre>
 </p>
@@ -62,8 +62,8 @@ nonogram_encode(example) = [[[0, 1, 0, 1, 0],
 <!-- The section is optional -->
 <p class="for_info_only">
 
-    <strong>How it’s used: </strong>
-    <i>Helps you when you create your own type of picture logic puzzle.</i>
+    <strong>How it’s used:</strong>
+    <i>Helps you when you decide to create your own type of picture logic puzzle.</i>
 </p>
 
 <!-- Here you can explain some constraints for input-->
@@ -73,6 +73,6 @@ nonogram_encode(example) = [[[0, 1, 0, 1, 0],
     <ul>
     <li><i>len(data[i]) == len(data[0])</i></li>
     <li><i>set(data[i]) == {' ', 'X'}</i></li>
-    <li><i>for list in output: len(list[i]) == len(list[0])</i></li>
+    <li><i>for {% if is_js %}Arrays{% else %}lists{% endif %} in output: len(list[i]) == len(list[0])</i></li>
     </ul>
 </p>
