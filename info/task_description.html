@@ -72,7 +72,7 @@ nonogram_encode(example) = [[[0, 1, 0, 1, 0],
     <strong>Precondition:</strong>
     <ul>
     <li><i>len(data[i]) == len(data[0])</i></li>
-    <li><i>set(data[i]) == {' ', 'X'}</i></li>
+    <li><i>set(data[i]) == set([' ', 'X'])</i></li>
     <li><i>for {% if is_js %}Arrays{% else %}lists{% endif %} in output: len(list[i]) == len(list[0])</i></li>
     </ul>
 </p>
