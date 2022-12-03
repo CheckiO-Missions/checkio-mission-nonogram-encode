@@ -34,11 +34,11 @@ rows clue 0 1 1 ' X X '
     <br />
     <br />
     <pre class="brush: python">
-nonogram_encode(example) = [[[0, 1, 0, 1, 0],
-                             [1, 1, 1, 1, 1]],
-                            [[0, 1, 1],
-                             [1, 1, 1],
-                             [0, 1, 1]]]
+result = [[[0, 1, 0, 1, 0],
+           [1, 1, 1, 1, 1]],
+          [[0, 1, 1],
+           [1, 1, 1],
+           [0, 1, 1]]]
 # те ж саме, неформатовано
 [[[0, 1, 0, 1, 0], [1, 1, 1, 1, 1]], [[0, 1, 1], [1, 1, 1], [0, 1, 1]]]
     </pre>
@@ -72,8 +72,8 @@ nonogram_encode(example) = [[[0, 1, 0, 1, 0],
 <p>
     <strong>Передумови:</strong>
     <ul>
-    <li><i>len(data[i]) == len(data[0])</i></li>
-    <li><i>set(data[i]) == set([' ', 'X'])</i></li>
-    <li><i>для вихідних {% if is_js %}масивів{% else %}списків{% endif %}: len(list[i]) == len(list[0])</i></li>
+    <li><i>len(data[i]) == len(data[0])</i>;</li>
+    <li><i>set(data[i]) == set([' ', 'X'])</i>;</li>
+    <li><i>для вихідних {% if is_js %}масивів{% else %}списків{% endif %}: len(list[i]) == len(list[0])</i>.</li>
     </ul>
 </p>
