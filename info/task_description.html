@@ -1,17 +1,16 @@
 <!-- Describe task in general -->
 
 <p>
-    I believe, you have heart about picture logic puzzles <a target="_blank" href="https://en.wikipedia.org/wiki/Nonogram">nonograms</a>
-    and solved them. This mission is the opposite: you already have a binary image,
-    formed by strings of equal length, where background empty cell is whitespace and
-    picture cell filled with 'X'.
+    I trust you love the picture logic puzzles called <a target="_blank" href="https://en.wikipedia.org/wiki/Nonogram">nonograms</a> 
+    and have solved many of them. This mission is the opposite: you already have a binary image, formed by strings of equal length, 
+    where a background empty cell contains whitespace and a picture cell contains 'X'.
 </p>
 <p>
-    Your goal is to create a nonogram from the image: write a number clue for solving
-    this image like it was hidden. Your function should return {% if is_js %}an Array of two Arrays{% else %}a list of two lists{% endif %}.
-    The first one consists of {% if is_js %}Arrays{% else %}lists{% endif %} with numbers for columns clue, the second one -
-    the same for rows clue. All {% if is_js %}Arrays{% else %}lists{% endif %} in columns clue, as well as in rows,
-    should be of same 'depth' (complemented with 0). Let's see all this on example:
+    Your goal is to create a nonogram based upon the image: write number clues for solving the image like it was hidden. Your function 
+    should return {% if is_js %}an Array of two Arrays{% else %}a list of two lists{% endif %}. The first one consists of 
+    {% if is_js %}Arrays{% else %}lists{% endif %} with numbers for the columns' clues and the second one 
+    contains the same for the rows' clues. All {% if is_js %}Arrays{% else %}lists{% endif %} of the columns' clues, as well as of 
+    the rows' clues, should be of the same 'depth' (complemented with 0). Let's see an example:
     <br />
     <br />
     <pre class="brush: python">
