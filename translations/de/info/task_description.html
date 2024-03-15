@@ -1,0 +1,77 @@
+<!-- Describe task in general -->
+
+<p>
+    Ich hoffe, Sie lieben die Logikrätsel mit Bildern, die <a target="_blank" href="https://en.wikipedia.org/wiki/Nonogram">nonograms</a> 
+    und haben schon viele davon gelöst. Diese Aufgabe ist das Gegenteil: Sie haben bereits ein binäres Bild, das aus gleich langen Zeichenketten besteht, 
+    wobei eine leere Zelle im Hintergrund ein Leerzeichen und eine Bildzelle ein 'X' enthält.
+</p>
+<p>
+    Ihr Ziel ist es, auf der Grundlage des Bildes ein Nonogramm zu erstellen: Schreiben Sie Zahlenhinweise, um das Bild zu lösen, als ob es versteckt wäre. Ihre Funktion 
+    sollte {% if is_js %}ein Array aus zwei Arrays{% else %}eine Liste aus zwei Listen{% endif %} zurückgeben. Die erste besteht aus 
+   {% if is_js %}Arrays{% else %}Listen{% endif %} mit Zahlen für die Hinweise der Spalten und die zweite Liste 
+    enthält dasselbe für die Hinweise in den Zeilen. Alle {% if is_js %}Arrays{% else %}Listen{% endif %} der Hinweise für die Spalten sowie für die 
+    die Hinweise für die Zeilen, sollten die gleiche 'Tiefe' haben (ergänzt durch 0). Lassen Sie uns ein Beispiel sehen:
+   <br />
+    <br />
+   <pre class="brush: python">
+example = [' X X ',
+           'X X X', 
+           ' X X ']
+    </pre>
+    Beispiel mit Lösung, um die ganze Idee zu sehen:
+   <br />
+    <br />
+   <pre class="brush: python">
+    columns clue 01010
+                 11111
+rows clue 0 1 1 ' X X '
+          1 1 1 'X X X'
+          0 1 1 ' X X '
+    </pre>
+    Für dieses Beispiel sollte Ihre Funktion also Folgendes zurückgeben:
+   <br />
+    <br />
+   <pre class="brush: python">
+result = [[[0, 1, 0, 1, 0],
+           [1, 1, 1, 1, 1]],
+          [[0, 1, 1],
+           [1, 1, 1],
+           [0, 1, 1]]]
+# the same, non formatted view
+[[[0, 1, 0, 1, 0], [1, 1, 1, 1, 1]], [[0, 1, 1], [1, 1, 1], [0, 1, 1]]]
+    </pre>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> {% if is_js %}Array{% else %}Liste{% endif %} von Zeichenketten.
+</p>
+
+<p>
+   <strong>Ausgabe:</strong> {% if is_js %}Array aus 2 Arrays{% else %}Liste aus 2 Listen{% endif %}.
+</p>
+
+<p>
+    <strong>Beispiele:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>Wie es verwendet wird:</strong>
+    <i>Hilft Ihnen, wenn Sie sich entscheiden, Ihre eigene Art von logischen Bilderrätseln zu erstellen.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Vorbedingungen:</strong>
+    <ul>
+    <li><i>len(data[i]) == len(data[0])</i>;</li>
+    <li><i>set(daten[i]) == set([' ', 'X'])</i>;</li>
+    <li><i>für {% if is_js %}Arrays{% else %}Listen{% endif %} in Ausgabe: len(list[i]) == len(list[0])</i>.</li>
+    </ul>
+</p>
