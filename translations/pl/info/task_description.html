@@ -1,0 +1,77 @@
+<!-- Describe task in general -->
+
+<p>
+    Wierzę, że uwielbia Pan obrazkowe łamigłówki logiczne o nazwie <a target="_blank" href="https://en.wikipedia.org/wiki/Nonogram">nonograms</a> 
+    i rozwiązał Pan wiele z nich. Ta misja jest odwrotna: mają już Państwo obraz binarny, utworzony przez ciągi o równej długości, 
+    gdzie pusta komórka tła zawiera białe znaki, a komórka obrazka zawiera "X".
+</p>
+<p>
+    Państwa celem jest stworzenie nonogramu na podstawie obrazka: proszę napisać wskazówki liczbowe, aby rozwiązać obrazek tak, jakby był ukryty. Funkcja 
+    powinna zwrócić {% if is_js %}tablicę dwóch tablic{% else %}listę dwóch list{% endif %}. Pierwsza z nich składa się z 
+   {% if is_js %}Tablice{% else %}listy{% endif %} z liczbami dla wskazówek kolumn, a druga lista 
+    zawiera to samo dla wskazówek wierszy. Wszystkie {% if is_js %}tablice{% else %}listy{% endif %} wskazówek dla kolumn, jak również dla wierszy 
+    wierszy, powinny mieć tę samą "głębokość" (uzupełnioną do 0). Proszę zobaczyć przykład:
+   <br />
+    <br />
+   <pre class="brush: python">
+example = [' X X ',
+           'X X X', 
+           ' X X ']
+    </pre>
+    Przykład z rozwiązaniem, aby zobaczyć całą ideę:
+   <br />
+    <br />
+   <pre class="brush: python">
+    columns clue 01010
+                 11111
+rows clue 0 1 1 ' X X '
+          1 1 1 'X X X'
+          0 1 1 ' X X '
+    </pre>
+    W tym przykładzie funkcja powinna zwrócić następujące wyniki:
+   <br />
+    <br />
+   <pre class="brush: python">
+result = [[[0, 1, 0, 1, 0],
+           [1, 1, 1, 1, 1]],
+          [[0, 1, 1],
+           [1, 1, 1],
+           [0, 1, 1]]]
+# the same, non formatted view
+[[[0, 1, 0, 1, 0], [1, 1, 1, 1, 1]], [[0, 1, 1], [1, 1, 1], [0, 1, 1]]]
+    </pre>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Wejście:</strong> {% if is_js %}Array{% else %}List{% endif %} ciągów znaków.
+</p>
+
+<p>
+   <strong>Wyjście:</strong> {% if is_js %}Tablica 2 tablic{% else %}Lista 2 list{% endif %}.
+</p>
+
+<p>
+    <strong>Przykłady:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>Jak to jest używane:</strong>
+    <i>Pomaga, gdy zdecydują się Państwo stworzyć własny typ obrazkowej układanki logicznej.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Warunki wstępne:</strong>
+    <ul>
+    <li><i>len(data[i]) == len(data[0])</i>;</li>
+    <li>set(data[i]<i>) == set([' ', 'X'])</i>;</li>
+    <li><i>for {% if is_js %}Arrays{% else %}lists{% endif %} in output: len(list[i]) == len(list[0])</i>.</li>
+    </ul>
+</p>
