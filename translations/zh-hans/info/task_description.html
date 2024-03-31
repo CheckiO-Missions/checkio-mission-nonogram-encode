@@ -1,0 +1,77 @@
+<!-- Describe task in general -->
+
+<p>
+    我相信您喜欢名为<a target="_blank" href="https://en.wikipedia.org/wiki/Nonogram">nonograms</a> 的图画逻辑谜题，并且已经解出了许多谜题。 
+    的图片逻辑谜题，并且已经解出了许多谜题。这个任务恰恰相反：你已经有了一幅由等长字符串组成的二进制图片、 
+    其中背景空白单元格包含空白，图片单元格包含 "X"。
+</p>
+<p>
+    您的目标是在图像的基础上创建一个非图形：写出解开图像的数字线索，就像隐藏起来一样。您的函数 
+    应返回{% if is_js %}两个数组的数组{% else %}两个列表的列表{% endif %} 。第一个数组由 
+   {% if is_js %}数组{% else %}列表{% endif %} ，列的线索包含数字，第二个数组 
+    同样包含行的线索。所有{% if is_js %}数组{% else %}列表{% endif %} 的列线索和行线索都应该是数字。 
+    行线索的数组的 "深度 "应该相同（用 0 补充）。我们来看一个例子：
+   <br />
+    <br />
+   <pre class="brush: python">
+example = [' X X ',
+           'X X X', 
+           ' X X ']
+    </pre>
+    带解法的示例，了解整个思路：
+   <br />
+    <br />
+   <pre class="brush: python">
+    columns clue 01010
+                 11111
+rows clue 0 1 1 ' X X '
+          1 1 1 'X X X'
+          0 1 1 ' X X '
+    </pre>
+    因此，在这个示例中，您的函数应返回以下结果：
+   <br />
+    <br />
+   <pre class="brush: python">
+result = [[[0, 1, 0, 1, 0],
+           [1, 1, 1, 1, 1]],
+          [[0, 1, 1],
+           [1, 1, 1],
+           [0, 1, 1]]]
+# the same, non formatted view
+[[[0, 1, 0, 1, 0], [1, 1, 1, 1, 1]], [[0, 1, 1], [1, 1, 1], [0, 1, 1]]]
+    </pre>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>输入：</strong> {% if is_js %}数组{% else %}字符串列表{% endif %} 。
+</p>
+
+<p>
+   <strong>输出：</strong> {% if is_js %}2 个数组的数组{% else %}2 个列表的列表{% endif %} 。
+</p>
+
+<p>
+    <strong>示例：</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>如何使用：</strong>
+    <i>当您决定创建自己类型的图片逻辑谜题时，它将为您提供帮助。</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>前提条件</strong>
+    <ul>
+    <li><i>len(data[i]) == len(data[0])</i>；</li>
+    <li><i>set(data[i]) == set([' ', 'X'])</i>；</li>
+    <li><i>for{% if is_js %}Arrays{% else %}</i> lists<i>{% endif %} in output: len(list[i]) == len(list[0])</i>.</li>
+    </ul>
+</p>
