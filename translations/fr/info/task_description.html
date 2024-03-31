@@ -1,0 +1,77 @@
+<!-- Describe task in general -->
+
+<p>
+    Je pense que vous aimez les puzzles logiques à base d'images, appelés <a target="_blank" href="https://en.wikipedia.org/wiki/Nonogram">nonograms</a>, et que vous en avez résolu de nombreux 
+    et que vous en avez résolu un grand nombre. Cette mission est à l'opposé: vous disposez déjà d'une image binaire, formée de chaînes de caractères de longueur égale, 
+    où une cellule vide en arrière-plan contient un espace blanc et une cellule d'image contient 'X'.
+</p>
+<p>
+    Votre objectif est de créer un nonogramme basé sur l'image: écrire des indices numériques pour résoudre l'image comme si elle était cachée. Votre fonction 
+    doit renvoyer {% if is_js %}un tableau de deux tableaux{% else %}une liste de deux listes{% endif %}. La première consiste en 
+   {% if is_js %}Tableaux{% else %}listes{% endif %} avec des nombres pour les indices des colonnes et la seconde 
+    contient la même chose pour les indices des lignes. Tous les tableaux {% if is_js %}{% else %} listes{% endif %} des indices de colonnes, ainsi que des indices de 
+    des lignes, doivent avoir la même "profondeur" (complétée par 0). Voyons un exemple:
+   <br />
+    <br />
+   <pre class="brush: python">
+example = [' X X ',
+           'X X X', 
+           ' X X ']
+    </pre>
+    Exemple avec solution pour voir l'ensemble de l'idée:
+   <br />
+    <br />
+   <pre class="brush: python">
+    columns clue 01010
+                 11111
+rows clue 0 1 1 ' X X '
+          1 1 1 'X X X'
+          0 1 1 ' X X '
+    </pre>
+    Ainsi, pour cet exemple, votre fonction devrait renvoyer ce qui suit:
+   <br />
+    <br />
+   <pre class="brush: python">
+result = [[[0, 1, 0, 1, 0],
+           [1, 1, 1, 1, 1]],
+          [[0, 1, 1],
+           [1, 1, 1],
+           [0, 1, 1]]]
+# the same, non formatted view
+[[[0, 1, 0, 1, 0], [1, 1, 1, 1, 1]], [[0, 1, 1], [1, 1, 1], [0, 1, 1]]]
+    </pre>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> {% if is_js %}Tableau{% else %}Liste{% endif %} de chaînes de caractères.
+</p>
+
+<p>
+   <strong>Sortie:</strong> {% if is_js %}Tableau de 2 tableaux{% else %}Liste de 2 listes{% endif %}.
+</p>
+
+<p>
+    <strong>Exemples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>Comment il est utilisé:</strong>
+    <i>Vous aide lorsque vous décidez de créer votre propre type d'énigme logique illustrée.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Conditions préalables:</strong>
+    <ul>
+    <li>len<i>(data[i]) == len(data[0])</i>;</li>
+    <li><i>set(data[i]) == set([' ', 'X'])</i>;</li>
+    <li><i>for {% if is_js %}Arrays{% else %}lists{% endif %} in output: len(list[i]) == len(list[0])</i>.</li>
+    </ul>
+</p>
